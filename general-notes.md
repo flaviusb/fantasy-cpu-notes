@@ -14,3 +14,10 @@ Relatedly:
 - Devices are addressed by id.
 - All mappings (ids, pointers etc) may vary between cores under certain circumstances, though they will remap 'logically'.
 - That is, eg device id #0 will alway be the local most DMA controller.
+
+General features:
+- Fixed encoding (probably 32 bits per instruction)
+- Most instructions take either 2 or 3 registers - (source -> dest) or (source, source -> dest)
+- Some instructions have a variant where one of the source registers is replaced by an inline 8 bit value
+- 256 registers, with register 0 being hard-wired to be zero
+- Condition register/s for conditional jump etc

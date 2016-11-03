@@ -1,21 +1,21 @@
-Architectures to crib heavily off: DEC Alpha, MMIX.
-Architectures to crib a little off, maybe: POWER8, Sparc.
+Architectures to crib heavily off for basic run cores: DEC Alpha, MMIX.
+Architectures to crib a little off, maybe, for basic run cores: POWER8, Sparc.
 
-Most novel feature: Memory architecture.
-Very non-uniform memory. No cache as such at all.
-L1 is the only thing that the IP can point into. All 'cache' control
-is essentially manual. Lots of DMA stuff, with fairly complex memory shuffling commands.
-All load, store, move etc instructions deal with L1 only. No cache coherence!
-L1 is per core.
+Very non-uniform memory. No cache as such at all. Cores have access to various pools of memory, with different properties; these are per core, though some are also accesible to channel processors.
+There is a special, very small run memory, which is the only thing that the IP can point into. All 'cache' control
+is essentially manual. All load, store, move etc instructions deal with these pools accessible to the core only. No cache coherence!
+Executables are made up of chunked run images, which get 'linked' by channel programs when they are moved into a run pool.
+
 
 Relatedly:
-- Lots of DMA controllers.
-- Various devices controlled via pushing to 'command buffers'.
-- Devices are addressed by id.
-- All mappings (ids, pointers etc) may vary between cores under certain circumstances, though they will remap 'logically'.
-- That is, eg device id #0 will alway be the local most DMA controller.
+- Lots of channel processors.
+- Hardware, mixed and software processes.
+- NoC
+- Various devices controlled via messages sent over the NoC, in various ways.
+- Both the NoC and the processors are non uniform - there are subnets with different properties, and there are cores with different properties.
+- Recursive nameservers are a thing.
 
-General features:
+General features of the generic 'software running cores':
 - Fixed encoding (probably 32 bits per instruction)
 - Most instructions take either 2 or 3 registers - (source -> dest) or (source, source -> dest)
 - Some instructions have a variant where one of the source registers is replaced by an inline 8 bit value

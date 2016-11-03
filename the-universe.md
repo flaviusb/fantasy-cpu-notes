@@ -5,4 +5,6 @@ The major examples of these things:
 - GC.
 - Channelling.
 - Nameservers/arbitrators.
+- Names
+- Authentication
 

@@ -2,7 +2,7 @@ There are certain things that need to be essentially features of the universe - 
 
 The major examples of these things:
 - The network interconnect framework.
-- GC.
+- GC, and relatedly, memory allocation.
 - Channelling.
 - Nameservers/arbitrators.
 - Names

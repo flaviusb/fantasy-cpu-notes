@@ -8,4 +8,6 @@ There are several chunk sizes, but they are all pretty small - 256 bytes * a pow
 
 Executables have to be compiled for a given computer layout - that is, a set of cores, with type, bram size etc information, and a given topology.
 
+The chunks within the singular image can of course target different core types (eg cpu, gpu, channel, as well as variations), and this is specified in the demuxing and routing instructions.
+
 I am not sure yet how to do libraries.

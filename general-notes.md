@@ -8,7 +8,7 @@ Executables are made up of chunked run images, which get 'linked' by channel pro
 
 
 Relatedly:
-- Lots of channel processors.
+- Lots of channel processors, arbitration processors, and a deep integration of resource handling between OS and hardware for eg memory, IO, processes, threads, mailboxes, supervisors, arbitrators, wake/sleep triggers, tokens etc.
 - Hardware, mixed and software processes.
 - NoC
 - Various devices controlled via messages sent over the NoC, in various ways.
@@ -16,8 +16,10 @@ Relatedly:
 - Recursive nameservers are a thing.
 
 General features of the generic 'software running cores':
-- Fixed encoding (probably 32 bits per instruction)
-- Most instructions take either 2 or 3 registers - (source -> dest) or (source, source -> dest)
-- Some instructions have a variant where one of the source registers is replaced by an inline 8 bit value
-- 256 registers, with register 0 being hard-wired to be zero
-- Condition register/s for conditional jump etc
+- No registers, no flags
+- 13 bit addresses addressing into 4 byte aligned scratch for a total of 32kB addressable scratch
+- 32 bit encoding, with the following formats
+  - leading 1 bit literal '0', then 5 bits operand, 2 × 13 bits of address
+  - leading 2 bits literal '10', then 9 bits of operand, 13 bits of address
+  - leading 3 bits literal '110', then 6 bits of operand, 8 bits of constant, 2 bits of byte selection, 13 bits of address
+  - leading 3 bits literal '111', then 29 bits of operand

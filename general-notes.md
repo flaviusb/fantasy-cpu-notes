@@ -23,3 +23,4 @@ General features of the generic 'software running cores':
   - leading 2 bits literal '10', then 9 bits of operand, 13 bits of address
   - leading 3 bits literal '110', then 6 bits of operand, 8 bits of constant, 2 bits of byte selection, 13 bits of address
   - leading 3 bits literal '111', then 29 bits of operand
+- Some opcodes use direct addresses, some use indirect addresses. For those that use indirect addresses, they may use either one or two address values (loosely) packed into each 32 bit addressable unit; the first address starts at byte 0, and the second address (if any) starts at byte 2.

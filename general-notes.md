@@ -27,3 +27,5 @@ General features of the generic 'software running cores':
 
 No registers and no flags, only scratch. The consequence of this is special addresses which the processor uses for these purposes. This is both an architectural point and also part of the ABI.
 These special addresses can still be set to 'stall' state, from eg channel processor operations. If the processor accesses one of these while it is in the 'stall' state, it stalls, just as if it tried to read from or write to the address for any other reason.
+
+Two kinds of libraries - inner and outer. Inner libraries are compiled into the program binary, and are used using the usual function calling ABI. There is no boundary between the library and the program; a misbehaving inner library can trash the program. Outer libraries run on the other side of a boundary, and can only be communicated with through IPC; a misbehaving outer library cannot directly affect the state of the program.

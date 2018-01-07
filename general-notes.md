@@ -24,3 +24,6 @@ General features of the generic 'software running cores':
   - leading 3 bits literal '110', then 6 bits of operand, 8 bits of constant, 2 bits of byte selection, 13 bits of address
   - leading 3 bits literal '111', then 29 bits of operand
 - Some opcodes use direct addresses, some use indirect addresses. For those that use indirect addresses, they may use either one or two address values (loosely) packed into each 32 bit addressable unit; the first address starts at byte 0, and the second address (if any) starts at byte 2.
+
+No registers and no flags, only scratch. The consequence of this is special addresses which the processor uses for these purposes. This is both an architectural point and also part of the ABI.
+These special addresses can still be set to 'stall' state, from eg channel processor operations. If the processor accesses one of these while it is in the 'stall' state, it stalls, just as if it tried to read from or write to the address for any other reason.

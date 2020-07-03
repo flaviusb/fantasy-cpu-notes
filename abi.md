@@ -8,3 +8,5 @@ Heap.
 Locals.
 Arguments.
 
+
+The stack is made of segments, the length of which 

@@ -6,6 +6,18 @@ There is a special, very small run memory, which is the only thing that the IP c
 is essentially manual. All load, store, move etc instructions deal with these pools accessible to the core only. No cache coherence!
 Executables are made up of chunked run images, which get 'linked' by channel programs when they are moved into a run pool.
 
+Possibilities:
+36-bit word, 9-bit addressable scratch, architecture for synthesis into FPGAs
+- Normal instructions are 6 bits op, 3 10-bit operands
+- 36 bit word
+- 36864 bits of scratch, 36 bit alignment, for 1024 words
+64-bit word, 19-bit addressable scratch, architecture for ASIC
+- Normal instructions are 7 bits op, 3 19-bit operands
+- Immediate variations, some fused ops (eg x + a shift)
+- 64-bit word
+- 33554432 bits of scratch, 64 bit alignment, for 524288 words
+
+
 
 Relatedly:
 - Lots of channel processors, arbitration processors, and a deep integration of resource handling between OS and hardware for eg memory, IO, processes, threads, mailboxes, supervisors, arbitrators, wake/sleep triggers, tokens etc.
@@ -15,11 +27,13 @@ Relatedly:
 - Both the NoC and the processors are non uniform - there are subnets with different properties, and there are cores with different properties.
 - Recursive nameservers are a thing.
 
+---
+
 General features of the generic 'software running cores':
 - No registers, no flags
 - 13 bit addresses addressing into 4 byte aligned scratch for a total of 32kB addressable scratch
 - 32 bit encoding, with the following formats
-  - leading 1 bit literal '0', then 5 bits operand, 2 × 13 bits of address
+  - leading 1 bit literal '0', then 4 bits operand, 1 bit sink selector, 2 × 13 bits of address
   - leading 2 bits literal '10', then 9 bits of operand, 13 bits of address
   - leading 3 bits literal '110', then 6 bits of operand, 8 bits of constant, 2 bits of byte selection, 13 bits of address
   - leading 3 bits literal '111', then 29 bits of operand

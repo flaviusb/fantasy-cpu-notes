@@ -7,7 +7,7 @@ is essentially manual. All load, store, move etc instructions deal with these po
 Executables are made up of chunked run images, which get 'linked' by channel programs when they are moved into a run pool.
 
 Possibilities:
-36-bit word, 9-bit addressable scratch, architecture for synthesis into FPGAs
+36-bit word, 10-bit addressable scratch, architecture for synthesis into FPGAs
 - Normal instructions are 6 bits op, 3 10-bit operands
 - 36 bit word
 - 36864 bits of scratch, 36 bit alignment, for 1024 words
@@ -17,7 +17,10 @@ Possibilities:
 - 64-bit word
 - 33554432 bits of scratch, 64 bit alignment, for 524288 words
 
-
+Commonalities:
+- Each word or scratch has a corresponding set of flags to determine
+  * Mapping state for MMIOs
+  * Stall state if waiting on a remote write
 
 Relatedly:
 - Lots of channel processors, arbitration processors, and a deep integration of resource handling between OS and hardware for eg memory, IO, processes, threads, mailboxes, supervisors, arbitrators, wake/sleep triggers, tokens etc.

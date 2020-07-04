@@ -21,6 +21,9 @@ Commonalities:
 - Each word or scratch has a corresponding set of flags to determine
   * Mapping state for MMIOs
   * Stall state if waiting on a remote write
+  * Dependency on channel processors
+- A set of ops in common, and an extension set that differ
+- In common: Integer/FP arithmetic packed/unpacked/signed/unsigned, Logical and/or/nor/xor/not/andn/orn/xnor, shift/rotate, 'bitops' like popcnt/clz/coalesce/etc, Map/Unmap local device, Send NoC message? (maybe do this through map/unmapping a NoC endpoint?), conditional/ternaries like cmov, maybe jz/jnz/jcmp? (Or maybe do this by logical operator with a dest register of 0x0?)
 
 Relatedly:
 - Lots of channel processors, arbitration processors, and a deep integration of resource handling between OS and hardware for eg memory, IO, processes, threads, mailboxes, supervisors, arbitrators, wake/sleep triggers, tokens etc.

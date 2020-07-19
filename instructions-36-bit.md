@@ -7,8 +7,41 @@ A, B, C = absolute address, word aligned
 . = ?????
 - = purely visual styling to make sections easier to see
 
-000000-00xxxxxxxaaaaaaabbbbbbbccccccc
-000000-01xxxxxxx.......aaaaaaabbbbbbb
-000000-10...
-000000-11xxxxxxxxAAAAAAAAAABBBBBBBBBB
-xxxxxx-AAAAAAAAAABBBBBBBBBBCCCCCCCCCC for op does not equal 000000
+type 2 000000-00xxxxxxxaaaaaaabbbbbbbccccccc
+type 3 000000-010xxxxxxxxxxxxxaaaaaaabbbbbbb
+type 4 000000-0110xxxxxxxiiiiiaaaaaaabbbbbbb
+type 5 000000-0111xxxxxxxxxiiiiiiiiiiaaaaaaa
+type 6 000000-10xxxxxiiiAAAAAAAAAABBBBBBBBBB
+type 7 000000-11xxxxxxxxAAAAAAAAAABBBBBBBBBB
+type 8 xxxxxx-AAAAAAAAAABBBBBBBBBBCCCCCCCCCC for op does not equal 000000
+
+type 7
+move
+swap
+accumulate
+decumulate
+not
+jz
+jnz
+popcnt
+clz
+ctz
+neg
+
+type 8
+add
+sub
+mul
+div
+rem
+and
+or
+nor
+nand
+andn
+orn
+xnor
+jeq
+jne
+fmac
+max

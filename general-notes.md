@@ -1,5 +1,5 @@
-Architectures to crib heavily off for basic run cores: DEC Alpha, MMIX.
-Architectures to crib a little off, maybe, for basic run cores: POWER8, Sparc.
+Architectures to crib heavily off for basic run cores: SuperH2 (and the other sh's), DEC Alpha.
+Architectures to crib a little off, maybe, for basic run cores: POWER8, Sparc, MMIX, Boneless, Octavo, ReRISC.
 
 Very non-uniform memory. No cache as such at all. Cores have access to various pools of memory, with different properties; these are per core, though some are also accesible to channel processors.
 There is a special, very small run memory, which is the only thing that the IP can point into. All 'cache' control

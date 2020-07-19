@@ -8,8 +8,10 @@ Executables are made up of chunked run images, which get 'linked' by channel pro
 
 Possibilities:
 36-bit word, 10-bit addressable scratch, architecture for synthesis into FPGAs
-- Two instruction formats:
-  * leading 000000 is 10 bits operand, 2 10 bit addresses, with subformats where the operand is shorter and there is an immediate embedded
+- Several instruction formats:
+  * leading 000000 splits into
+    - following 0xxxxxxxx, 3 7-bit displacements (-64 to +64 with no 0, similar to 1's complement - 0000000 is 1, which goes to 0111111 for 64, 1111111 is -64, 1000000 is -1)
+    - following 1xxxxxxxxx is 9 bits operand, 2 10 bit addresses, with subformats where the operand is shorter and there is an immediate embedded
   * Anything else is 6 bits operand (except 000000), 3 10 bit addresses
 - 36 bit word
 - 36864 bits of scratch, 36 bit alignment, for 1024 words

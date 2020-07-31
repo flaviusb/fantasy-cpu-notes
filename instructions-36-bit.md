@@ -31,7 +31,7 @@ neg
 type 8
 add
 sub
-mul
+mul signed, unsigned, packed
 div
 rem
 and
@@ -45,3 +45,4 @@ jeq
 jne
 fmac
 max
+shift/rotate left, right, sign extend

@@ -19,3 +19,12 @@ Basic parameters for the basic send instruction:
 - strides + widths
 - horizontal/vertical braiding
 - priority
+
+
+'Devices' are a thing.
+
+Ringbuffers attached to a clock + a mux + a DAC, populate the ringbuffer to make sound happen.
+
+Emulate storage with a file/set of files that the emulator connects a virtual device to.
+
+Have some forms of media be nybble addressable, so that file streams work between 36 and 64 bit systems, and to make conversion to/from legacy systems easier.

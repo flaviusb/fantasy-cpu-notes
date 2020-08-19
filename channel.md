@@ -29,6 +29,8 @@ Emulate storage with a file/set of files that the emulator connects a virtual de
 
 Have some forms of media be nybble addressable, so that file streams work between 36 and 64 bit systems, and to make conversion to/from legacy systems easier.
 
+Have some forms of memory where you can send an operation - one of the 16 binary ops, plus an operand, to perform MEM = MEM OP OPERAND on the memory itself. You can do in place single bit set/clear with OR/ORN, for instance.
+
 MMIO - three ways.
 - Mount data plane, translucent control plane
   - Eg mount a range of remote memory, writes on either side will turn into bus traffic to 'write through'

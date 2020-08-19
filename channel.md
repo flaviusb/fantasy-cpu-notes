@@ -29,7 +29,13 @@ Emulate storage with a file/set of files that the emulator connects a virtual de
 
 Have some forms of media be nybble addressable, so that file streams work between 36 and 64 bit systems, and to make conversion to/from legacy systems easier.
 
-Have some forms of memory where you can send an operation - one of the 16 binary ops, plus an operand, to perform MEM = MEM OP OPERAND on the memory itself. You can do in place single bit set/clear with OR/ORN, for instance.
+Have some forms of memory where you can send an operation - one of the 15 binary ops that make sense (ignore the 16th), plus an operand, to perform MEM = MEM OP OPERAND on the memory itself. You can do in place single bit set/clear with OR/ORN, for instance.
+
+Command framing then becomes
+
+Read:  0000 StartAddress[n] MountSelector[m]
+Write: OP[4] StartAddress[n] MountSelector[m]
+  Where OP cannot be 0000, and MountSelector refers to a mount id, where the mount can eg have stride, and determines either the location of the OPERAND or the location to write to, as well as the total length.
 
 MMIO - three ways.
 - Mount data plane, translucent control plane

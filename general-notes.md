@@ -39,6 +39,8 @@ Relatedly:
 - Both the NoC and the processors are non uniform - there are subnets with different properties, and there are cores with different properties.
 - Recursive nameservers are a thing.
 
+Think in distsys terms fractally - implement backpressure not just in interconnect, but in resources as well (eg memory, processor time).
+
 ---
 
 General features of the generic 'software running cores':

@@ -28,3 +28,11 @@ Ringbuffers attached to a clock + a mux + a DAC, populate the ringbuffer to make
 Emulate storage with a file/set of files that the emulator connects a virtual device to.
 
 Have some forms of media be nybble addressable, so that file streams work between 36 and 64 bit systems, and to make conversion to/from legacy systems easier.
+
+MMIO - two ways.
+- Mount data plane, translucent control plane
+  - Eg mount a range of remote memory, writes on either side will turn into bus traffic to 'write through'
+    - Control plane not 'fully transparent' as mounting/unmounting as well as things like stride/window are explicit through the arbitrator
+- Mount control plane, translucent data plane
+  - Eg set memory addresses to correspond to control registers, reads and writes get tagged and sent through to the device which hangs off the end of the memory bus
+    - Data is translucent in that often you will have to manually frame/unframe the data in through the control registers

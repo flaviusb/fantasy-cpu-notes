@@ -1,0 +1,39 @@
+Arbitrator, nameserver, router, NoC
+n × 36 bit processor with 1024 36-bit words of scratch, word addressable
+Memory
+- 19 bit address space, nybble addressable for 262144 nybbles, with op send
+  * OP[4] ADDR[19] MOUNTPOINT[13]
+
+'Mailbox' for each processor, where tagged messages with backpressure can be sent.
+
+
+Pixel geometry: Square, rectangle, round, non-uniform (eg RGBGRGBG), subpixel, hex...
+Colour space.
+Colour response.
+Refresh rate/response rate/sync-stuff.
+Pixel positions in a metric space
+- Eg arbritrarily shaped screens
+
+
+---
+
+Devicetree equivalent - 空想樹
+For any arbitrator, we have a set of devices, with types and restrictions
+Some of those devices are gateways
+Initial devicetree equiv 
+
+---
+
+X11 equiv
+- Sizes (bitness) have to be negotiated, with renegotiation steps
+- This allows for eg arbitrarily large pixmaps, without needing vlq in every packet
+- Also see the problems in x11 caused by s16 vs u16 for different kinds of coords, which have to be interconvertable, plus issues where intervals (caused by eg coordinate transformations) become trivially unrepresentable
+
+Commands:
+- You have a list of commands that the server supports
+- An application makes a request to say here is the number format I want to use (ie bitness)
+- 'command x, I want it to be allocated number y for me' this can also be a list of requests
+- Then you run that command as 'x{in format m}'<args>
+
+
+NeWS alike stuff, and Document like stuff, and Application Shell like stuff.

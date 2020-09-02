@@ -13,15 +13,22 @@ Possibilities:
     - following 0xxxxxxxx, 3 7-bit displacements (-64 to +64 with no 0, similar to 1's complement - 0000000 is 1, which goes to 0111111 for 64, 1111111 is -64, 1000000 is -1)
     - following 1xxxxxxxxx is 9 bits operand, 2 10 bit addresses, with subformats where the operand is shorter and there is an immediate embedded
   * Anything else is 6 bits operand (except 000000), 3 10 bit addresses
-- 36 bit word
-- 36864 bits of scratch, 36 bit alignment, for 1024 words
 64-bit word, 19-bit addressable scratch, architecture for ASIC
 - Two instruction formats:
   * leading 0000000 is 19 bits operand, 2 19 bit addresses, with subformats where the operand is shorter and there is an immediate embedded
   * Anything else is 7 bits op (except 0000000), 3 19-bit operands
 - Immediate variations, some fused ops (eg x + a shift)
+
+Options (summary)
+- 36 bit word
+ * 36864 bits of scratch, 36 bit alignment, for 1024 words, 10-bit addressable
+ * up to 3 address instructions, addressing into scratch
+- 48-bit word
+ * 786432 bits of scratch, 48-bit alignment, for 16384 words, 14-bit addressable
+ * up to 3 address instructions, addressing into scratch
 - 64-bit word
-- 33554432 bits of scratch, 64 bit alignment, for 524288 words
+ * 33554432 bits of scratch, 64 bit alignment, for 524288 words, 19-bit addressable
+ * up to 3 address instructions, addressing into scratch
 
 Commonalities:
 - Each word or scratch has a corresponding set of flags to determine

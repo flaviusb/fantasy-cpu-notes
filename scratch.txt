@@ -37,3 +37,10 @@ Commands:
 
 
 NeWS alike stuff, and Document like stuff, and Application Shell like stuff.
+
+
+---
+
+Shaders as like coroutines?
+Semantics of megacores projecting back on the language - maybe prefix-trees instead of text?
+
